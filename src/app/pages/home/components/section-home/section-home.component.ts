@@ -22,7 +22,7 @@ export class SectionHomeComponent {
     })
   }
   receiveCharacter($event: string){
-    localStorage.setItem('receiveCharacter', $event)
+    localStorage.setItem('url_pokemon', JSON.stringify($event))
     this.route.navigate(['/pokemon']);
   }
   
