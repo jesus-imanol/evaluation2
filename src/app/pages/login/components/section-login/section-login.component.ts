@@ -23,8 +23,7 @@ login : FormGroup;
   }
   else{
     if(this.loginService.logearse(this.login.value.email, this.login.value.password)){
-      alert("Login Exitoso")
-      this.route.navigate(["home"])
+      this.route.navigate(["/home"])
     }else{
       alert("Login fallido")
     }

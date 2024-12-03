@@ -1,5 +1,12 @@
-<section class="w-full flex flex-row gap-5 auto flex-wrap mt-6 mx-auto items-center justify-center">
-    <div class="w-[70%] items-center justify-center flex flex-row flex-wrap gap-7">
-        <app-card-character *ngFor="let item of data" [character]="item" (viewCharacterEvent)="receiveCharacter($event)"></app-card-character>
+<section class="w-full flex flex-col gap-5 auto flex-wrap mt-6 mx-auto items-center justify-center">
+    <div class="w-[70%] items-center justify-center flex flex-col flex-wrap gap-7">
+        <div>
+            <h2 class="text-gray-800 font-semibold text-[40px]">Here to show the characters the API 
+            </h2>
+        </div>
+
+        <div class="w-[100%] items-center justify-center flex flex-row flex-wrap gap-7">
+            <app-card-character *ngFor="let item of data" [character]="item" (viewCharacterEvent)="receiveCharacter($event)"></app-card-character>
+        </div>
     </div>
 </section>

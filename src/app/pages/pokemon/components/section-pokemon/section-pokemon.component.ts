@@ -9,13 +9,15 @@ import { CommonModule } from '@angular/common';
   templateUrl: './section-pokemon.component.html',
   styleUrl: './section-pokemon.component.css'
 })
-export class SectionPokemonComponent implements OnInit {  
+export class SectionPokemonComponent {  
   name: string = '';
   pokemon: any;
 constructor(private pokemonByUrlService:PokemonByUrlService){}
-ngOnInit(){
+ngOnInit(): void{
   const storedName = localStorage.getItem('name');
-  this.name = storedName ? JSON.parse(storedName) : '';
+  this.name = storedName ? storedName : '';
+
+  
   this.pokemonByUrlService.getPokemonByUrl(this.name).subscribe(
     pokemon => {
       this.pokemon = pokemon;
