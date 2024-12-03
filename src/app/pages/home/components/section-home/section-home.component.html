@@ -1,0 +1,3 @@
+<section class="w-full flex flex-row gap-5 auto flex-wrap mt-6 mx-auto items-center justify-center">
+    <app-card-character *ngFor="let item of data" [character]="item" (viewCharacterEvent)="receiveCharacter($event)"></app-card-character>
+</section>
