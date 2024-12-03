@@ -7,8 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class PokemonByUrlService {
 
   constructor(private http:HttpClient) { }
-  getPokemonByUrl(url: string): Observable<any> {
-    return this.http.get<any>(url).pipe(
+  private url = 'https://pokeapi.co/api/v2/pokemon/'
+  getPokemonByUrl(name: string): Observable<any> {
+    return this.http.get<any>(`${this.url}${name}`).pipe(
       tap({
       next: (pokemon) => {
         console.log('Received:', pokemon);
@@ -18,7 +19,7 @@ export class PokemonByUrlService {
       }
     }))
   }
-  getPokemonsByUrl(url: string):Observable<any>{
+  getPokemonsImageByUrl(url: string):Observable<any>{
     return this.http.get<any>(url)
 
   }

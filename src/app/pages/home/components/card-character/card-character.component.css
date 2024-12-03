@@ -1,7 +1,7 @@
 .card {
     width: 190px;
     height: 254px;
-    background: #3405a3;
+    background: #f9b509;
     border-radius: 15px;
     box-shadow: 1px 5px 60px 0px #100a886b;
    }
@@ -35,7 +35,7 @@
    .card .img {
     width: 70px;
     height: 80px;
-    background: #6b64f3;
+    background: #0d02d9;
     border-radius: 15px;
     margin: auto;
     margin-top: 25px;

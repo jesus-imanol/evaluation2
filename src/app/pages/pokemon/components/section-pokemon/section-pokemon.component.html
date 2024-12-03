@@ -1,0 +1,12 @@
+<section class="flex w-full flex-row mt-4">
+    <div class="w-[50%] h-[50vh] flex items-center justify-center">
+        <img src={{pokemon.sprites.front_default}} alt="img" class="w-[50%]">
+    </div>
+    <div class="w-50% flex justify-center items-start flex-col gap-4">
+        <h1 class="text-blue-600 font-extrabold text-[50px]"> {{pokemon.abilities[0].ability.name | titlecase}} </h1>
+        <h3 class="text-[20px] text-blue-950">Formas</h3>
+        <p>{{pokemon.forms[0].name | titlecase}}</p>
+
+        
+    </div>
+</section>

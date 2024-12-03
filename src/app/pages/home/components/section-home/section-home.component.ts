@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { CardCharacterComponent } from '../card-character/card-character.component';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-section-home',
   standalone: true,
@@ -15,15 +16,30 @@ import { Router } from '@angular/router';
 export class SectionHomeComponent {
   constructor(private homeService:HomeService, private route: Router){}
   data : ICharacter[] = []
+  images : any[] = []
   ngOnInit(){
     this.homeService.getPokemons().subscribe(data => {
       this.data = data;
-      console.log(this.data)
+      this.getImages()
     })
   }
   receiveCharacter($event: string){
-    localStorage.setItem('url_pokemon', JSON.stringify($event))
+    localStorage.setItem('name', $event)
     this.route.navigate(['/pokemon']);
   }
+  getImages() {
+    const urls = this.data.map(character => character.url);
+    this.homeService.getImagesPokemons(urls).subscribe(
+      responses => {
+        this.data.forEach((element, index) => {
+          element.images = responses[index]?.sprites?.front_default || ''; 
+        });
+      },
+      error => {
+        console.error('Error fetching images:', error);
+      }
+    );
+  }
+  
   
 }

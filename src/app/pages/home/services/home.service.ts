@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, tap } from 'rxjs';
+import { forkJoin, map, Observable, tap } from 'rxjs';
 import { ICharacter } from '../models/icharacter';
 @Injectable({
   providedIn: 'root'
@@ -22,4 +22,9 @@ export class HomeService {
       }
     }))
   }
+  getImagesPokemons(urls: string[]): Observable<any[]> {
+    const images = urls.map(url => this.http.get<any>(url));
+    return forkJoin(images);
+  }
+  
 }

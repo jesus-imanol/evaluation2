@@ -10,10 +10,11 @@ export class CardCharacterComponent {
   @Input() character= {
     name: '',
     url: '',
+    images: '',
   };
   @Output() viewCharacterEvent = new EventEmitter<string>();
   viewCharacter() {
-    this.viewCharacterEvent.emit(this.character.url);
+    this.viewCharacterEvent.emit(this.character.name);
   }
 
 }
