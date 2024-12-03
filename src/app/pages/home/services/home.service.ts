@@ -12,12 +12,10 @@ export class HomeService {
 
   getPokemons():Observable<ICharacter[]>{
     return this.http.get<any>(this.url).pipe(
-     
       map(response => response.results),
       tap({
       next: (response:any)=> {
         console.log(response);
-        
       },
       error: (error:any) => {
         console.error('Error:', error);
