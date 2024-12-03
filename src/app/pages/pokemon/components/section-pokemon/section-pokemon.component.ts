@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonByUrlService } from '../../services/pokemon-by-url.service';
-
 @Component({
   selector: 'app-section-pokemon',
   standalone: true,
